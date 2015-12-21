@@ -9,6 +9,7 @@ addpath(genpath(pwd));
 % dir_img = dir('G:\数据\test-textloc\*.jpg');
 dir_img = dir('E:\数据\icdar2011\train\train-textloc\*.jpg');
 save_dir = 'E:\数据\Train_Data\';
+save_result_dir='D:\hx\edgebox-contour-neumann\contour_2011train_detection';
 num_img = length(dir_img);
 load('model_new.mat')
 load train_hog2011.mat
@@ -139,10 +140,10 @@ img_name = ['E:\数据\icdar2011\train\train-textloc\' img_value '.jpg'];
 %          imshow(des)
 %         F=getframe(gcf);
 %         img(F.cdata);
-          imwrite(img,[save_dir 'detection\' img_value '.jpg']);
+          imwrite(img,[save_result_dir '\' img_value '.jpg']);
         end
         
-        dlmwrite([save_dir 'location\' img_value '.txt'],result_last);
+        dlmwrite([save_result_dir '\' img_value '.txt'],result_last);
         clear result_n rgb_result_n show_img_n  bw_result_n  result_p rgb_result_p show_img_p  bw_result_p
     end
 end
