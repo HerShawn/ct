@@ -3,12 +3,12 @@ close all
 clc
 % addpath('C:\Program Files\MATLAB\R2011a\toolbox\matlab tool box');
 % addpath('E:\matlab2014a\toolbox');
-addpath('E:\matlab2014a\toolbox');
-addpath('G:\数据\coarse_localization\ct\GML_AdaBoost_Matlab_Toolbox_0.3');
+addpath('F:\Program Files\matlab\toolbox');
+addpath('D:\coarse_localization\ct\GML_AdaBoost_Matlab_Toolbox_0.3');
 addpath(genpath(pwd));
 % dir_img = dir('G:\数据\test-textloc\*.jpg');
-dir_img = dir('G:\数据\icdar2011\train\train-textloc\*.jpg');
-save_dir = 'G:\数据\Train_Data\';
+dir_img = dir('E:\数据\icdar2011\train\train-textloc\*.jpg');
+save_dir = 'E:\数据\Train_Data\';
 num_img = length(dir_img);
 load('model_new.mat')
 load train_hog2011.mat
@@ -25,7 +25,7 @@ for indexImg = 1:num_img
     %     img_name = ['E:\2012 文字检测\测试集\ICDAR 2011\test-textloc-gt\' dir_img(indexImg).name];
 %        img_value = '148';
 %     img_name = ['G:\数据\test-textloc\' img_value '.jpg'];
-img_name = ['G:\数据\icdar2011\train\train-textloc\' img_value '.jpg'];
+img_name = ['E:\数据\icdar2011\train\train-textloc\' img_value '.jpg'];
     img = imread(img_name);
     
     %10.14 不显示图片，数据集里255张图片太多
