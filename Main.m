@@ -7,9 +7,12 @@ addpath('F:\Program Files\matlab\toolbox');
 addpath('D:\coarse_localization\ct\GML_AdaBoost_Matlab_Toolbox_0.3');
 addpath(genpath(pwd));
 % dir_img = dir('G:\数据\test-textloc\*.jpg');
-dir_img = dir('E:\数据\icdar2011\train\train-textloc\*.jpg');
-save_dir = 'E:\数据\Train_Data\';
-save_result_dir='D:\hx\edgebox-contour-neumann\contour_2011train_detection';
+% dir_img = dir('E:\数据\icdar2011\train\train-textloc\*.jpg');
+dir_img = dir('E:\数据\icdar2015\Challenge2_Test_Task12_Images\*.jpg');
+% save_dir = 'E:\数据\Train_Data\';
+save_dir = 'E:\数据\Train_Data_2015';
+% save_result_dir='D:\hx\edgebox-contour-neumann\contour_2011train_detection';
+save_result_dir='D:\hx\edgebox-contour-neumann\contour_2015train_detection';
 num_img = length(dir_img);
 load('model_new.mat')
 load train_hog2011.mat
@@ -26,7 +29,8 @@ for indexImg = 1:num_img
     %     img_name = ['E:\2012 文字检测\测试集\ICDAR 2011\test-textloc-gt\' dir_img(indexImg).name];
 %        img_value = '148';
 %     img_name = ['G:\数据\test-textloc\' img_value '.jpg'];
-img_name = ['E:\数据\icdar2011\train\train-textloc\' img_value '.jpg'];
+% img_name = ['E:\数据\icdar2011\train\train-textloc\' img_value '.jpg'];
+img_name = ['E:\数据\icdar2015\Challenge2_Test_Task12_Images\' img_value '.jpg'];
     img = imread(img_name);
     
     %10.14 不显示图片，数据集里255张图片太多
@@ -143,7 +147,8 @@ img_name = ['E:\数据\icdar2011\train\train-textloc\' img_value '.jpg'];
           imwrite(img,[save_result_dir '\' img_value '.jpg']);
         end
         
-        dlmwrite([save_result_dir '\' img_value '.txt'],result_last);
+%         dlmwrite([save_result_dir '\' img_value '.txt'],result_last);
+        dlmwrite([save_result_dir '\' img_value '.txt'], result_last, 'delimiter', ',','newline', 'pc');
         clear result_n rgb_result_n show_img_n  bw_result_n  result_p rgb_result_p show_img_p  bw_result_p
     end
 end
